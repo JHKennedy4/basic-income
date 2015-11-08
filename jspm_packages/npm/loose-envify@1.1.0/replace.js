@@ -1,7 +1,7 @@
 /* */ 
 (function(process) {
   'use strict';
-  var jsTokens = require("js-tokens");
+  var jsTokens = require('js-tokens');
   var processEnvRe = /\bprocess\.env\.[_$a-zA-Z][$\w]+\b/;
   var spaceOrCommentRe = /^(?:\s|\/[/*])/;
   function replace(src, envs) {
@@ -49,4 +49,4 @@
     }
   }
   module.exports = replace;
-})(require("process"));
+})(require('process'));

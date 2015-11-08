@@ -7,12 +7,22 @@
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
+    'use strict'
     /*
     System.config({
     baseURL: '/app'
     });
      */
     System.import('app/main')
+
+    console.log(System)
+    // let's do some hot reloading
+    if (location.origin.match(/localhost/)) {
+      System.import('capaj/jspm-hot-reloader').then(function (HotReloader) {
+        let reloadPath = location.host + '/hot-reloader'
+        new HotReloader.default(reloadPath)
+      })
+    }
   </script>
 </head>
 <body>

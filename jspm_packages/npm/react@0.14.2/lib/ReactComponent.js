@@ -1,11 +1,11 @@
 /* */ 
 (function(process) {
   'use strict';
-  var ReactNoopUpdateQueue = require("./ReactNoopUpdateQueue");
-  var canDefineProperty = require("./canDefineProperty");
-  var emptyObject = require("fbjs/lib/emptyObject");
-  var invariant = require("fbjs/lib/invariant");
-  var warning = require("fbjs/lib/warning");
+  var ReactNoopUpdateQueue = require('./ReactNoopUpdateQueue');
+  var canDefineProperty = require('./canDefineProperty');
+  var emptyObject = require('fbjs/lib/emptyObject');
+  var invariant = require('fbjs/lib/invariant');
+  var warning = require('fbjs/lib/warning');
   function ReactComponent(props, context, updater) {
     this.props = props;
     this.context = context;
@@ -52,4 +52,4 @@
     }
   }
   module.exports = ReactComponent;
-})(require("process"));
+})(require('process'));

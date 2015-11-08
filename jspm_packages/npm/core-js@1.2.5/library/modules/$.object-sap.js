@@ -1,9 +1,9 @@
 /* */ 
-var $def = require("./$.def"),
-    core = require("./$.core"),
-    fails = require("./$.fails");
+var $def = require('./$.def'),
+    core = require('./$.core'),
+    fails = require('./$.fails');
 module.exports = function(KEY, exec) {
-  var $def = require("./$.def"),
+  var $def = require('./$.def'),
       fn = (core.Object || {})[KEY] || Object[KEY],
       exp = {};
   exp[KEY] = exec(fn);

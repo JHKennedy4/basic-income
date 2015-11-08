@@ -9,4 +9,4 @@
     } catch (x) {}
   }
   module.exports = canDefineProperty;
-})(require("process"));
+})(require('process'));

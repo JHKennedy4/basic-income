@@ -1,9 +1,9 @@
 /* */ 
 'use strict';
 var KEY = 'find',
-    $def = require("./$.def"),
+    $def = require('./$.def'),
     forced = true,
-    $find = require("./$.array-methods")(5);
+    $find = require('./$.array-methods')(5);
 if (KEY in [])
   Array(1)[KEY](function() {
     forced = false;
@@ -11,4 +11,4 @@ if (KEY in [])
 $def($def.P + $def.F * forced, 'Array', {find: function find(callbackfn) {
     return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
   }});
-require("./$.add-to-unscopables")(KEY);
+require('./$.add-to-unscopables')(KEY);

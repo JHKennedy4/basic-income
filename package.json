@@ -1,6 +1,7 @@
 {
   "jspm": {
     "dependencies": {
+      "capaj/jspm-hot-reloader": "github:capaj/jspm-hot-reloader@^0.3.0",
       "d3": "github:mbostock/d3@^3.5.6",
       "react": "npm:react@^0.14.2",
       "react-dom": "npm:react-dom@^0.14.2"

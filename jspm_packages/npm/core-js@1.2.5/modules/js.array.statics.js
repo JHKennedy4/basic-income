@@ -1,8 +1,8 @@
 /* */ 
-var $ = require("./$"),
-    $def = require("./$.def"),
-    $ctx = require("./$.ctx"),
-    $Array = require("./$.core").Array || Array,
+var $ = require('./$'),
+    $def = require('./$.def'),
+    $ctx = require('./$.ctx'),
+    $Array = require('./$.core').Array || Array,
     statics = {};
 var setStatics = function(keys, length) {
   $.each.call(keys.split(','), function(key) {

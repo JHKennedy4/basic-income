@@ -1,3 +1,3 @@
 /* */ 
-var $def = require("./$.def");
-$def($def.S, 'Object', {is: require("./$.same-value")});
+var $def = require('./$.def');
+$def($def.S, 'Object', {is: require('./$.same-value')});

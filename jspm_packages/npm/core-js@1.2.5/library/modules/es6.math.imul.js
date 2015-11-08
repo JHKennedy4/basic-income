@@ -1,7 +1,7 @@
 /* */ 
-var $def = require("./$.def"),
+var $def = require('./$.def'),
     $imul = Math.imul;
-$def($def.S + $def.F * require("./$.fails")(function() {
+$def($def.S + $def.F * require('./$.fails')(function() {
   return $imul(0xffffffff, 5) != -5 || $imul.length != 2;
 }), 'Math', {imul: function imul(x, y) {
     var UINT16 = 0xffff,

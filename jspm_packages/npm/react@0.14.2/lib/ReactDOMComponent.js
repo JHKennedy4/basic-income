@@ -1,33 +1,33 @@
 /* */ 
 (function(process) {
   'use strict';
-  var AutoFocusUtils = require("./AutoFocusUtils");
-  var CSSPropertyOperations = require("./CSSPropertyOperations");
-  var DOMProperty = require("./DOMProperty");
-  var DOMPropertyOperations = require("./DOMPropertyOperations");
-  var EventConstants = require("./EventConstants");
-  var ReactBrowserEventEmitter = require("./ReactBrowserEventEmitter");
-  var ReactComponentBrowserEnvironment = require("./ReactComponentBrowserEnvironment");
-  var ReactDOMButton = require("./ReactDOMButton");
-  var ReactDOMInput = require("./ReactDOMInput");
-  var ReactDOMOption = require("./ReactDOMOption");
-  var ReactDOMSelect = require("./ReactDOMSelect");
-  var ReactDOMTextarea = require("./ReactDOMTextarea");
-  var ReactMount = require("./ReactMount");
-  var ReactMultiChild = require("./ReactMultiChild");
-  var ReactPerf = require("./ReactPerf");
-  var ReactUpdateQueue = require("./ReactUpdateQueue");
-  var assign = require("./Object.assign");
-  var canDefineProperty = require("./canDefineProperty");
-  var escapeTextContentForBrowser = require("./escapeTextContentForBrowser");
-  var invariant = require("fbjs/lib/invariant");
-  var isEventSupported = require("./isEventSupported");
-  var keyOf = require("fbjs/lib/keyOf");
-  var setInnerHTML = require("./setInnerHTML");
-  var setTextContent = require("./setTextContent");
-  var shallowEqual = require("fbjs/lib/shallowEqual");
-  var validateDOMNesting = require("./validateDOMNesting");
-  var warning = require("fbjs/lib/warning");
+  var AutoFocusUtils = require('./AutoFocusUtils');
+  var CSSPropertyOperations = require('./CSSPropertyOperations');
+  var DOMProperty = require('./DOMProperty');
+  var DOMPropertyOperations = require('./DOMPropertyOperations');
+  var EventConstants = require('./EventConstants');
+  var ReactBrowserEventEmitter = require('./ReactBrowserEventEmitter');
+  var ReactComponentBrowserEnvironment = require('./ReactComponentBrowserEnvironment');
+  var ReactDOMButton = require('./ReactDOMButton');
+  var ReactDOMInput = require('./ReactDOMInput');
+  var ReactDOMOption = require('./ReactDOMOption');
+  var ReactDOMSelect = require('./ReactDOMSelect');
+  var ReactDOMTextarea = require('./ReactDOMTextarea');
+  var ReactMount = require('./ReactMount');
+  var ReactMultiChild = require('./ReactMultiChild');
+  var ReactPerf = require('./ReactPerf');
+  var ReactUpdateQueue = require('./ReactUpdateQueue');
+  var assign = require('./Object.assign');
+  var canDefineProperty = require('./canDefineProperty');
+  var escapeTextContentForBrowser = require('./escapeTextContentForBrowser');
+  var invariant = require('fbjs/lib/invariant');
+  var isEventSupported = require('./isEventSupported');
+  var keyOf = require('fbjs/lib/keyOf');
+  var setInnerHTML = require('./setInnerHTML');
+  var setTextContent = require('./setTextContent');
+  var shallowEqual = require('fbjs/lib/shallowEqual');
+  var validateDOMNesting = require('./validateDOMNesting');
+  var warning = require('fbjs/lib/warning');
   var deleteListener = ReactBrowserEventEmitter.deleteListener;
   var listenTo = ReactBrowserEventEmitter.listenTo;
   var registrationNameModules = ReactBrowserEventEmitter.registrationNameModules;
@@ -88,7 +88,7 @@
       process.env.NODE_ENV !== 'production' ? warning(false, 'ReactDOMComponent: Do not access .setProps() of a DOM node. ' + 'Instead, call ReactDOM.render again at the top level.%s', getDeclarationErrorAddendum(component)) : undefined;
     }
     if (!component) {
-      return ;
+      return;
     }
     ReactUpdateQueue.enqueueSetPropsInternal(component, partialProps);
     if (callback) {
@@ -101,7 +101,7 @@
       process.env.NODE_ENV !== 'production' ? warning(false, 'ReactDOMComponent: Do not access .replaceProps() of a DOM node. ' + 'Instead, call ReactDOM.render again at the top level.%s', getDeclarationErrorAddendum(component)) : undefined;
     }
     if (!component) {
-      return ;
+      return;
     }
     ReactUpdateQueue.enqueueReplacePropsInternal(component, partialProps);
     if (callback) {
@@ -132,10 +132,10 @@
   var styleMutationWarning = {};
   function checkAndWarnForMutatedStyle(style1, style2, component) {
     if (style1 == null || style2 == null) {
-      return ;
+      return;
     }
     if (shallowEqual(style1, style2)) {
-      return ;
+      return;
     }
     var componentName = component._tag;
     var owner = component._currentElement._owner;
@@ -145,14 +145,14 @@
     }
     var hash = ownerName + '|' + componentName;
     if (styleMutationWarning.hasOwnProperty(hash)) {
-      return ;
+      return;
     }
     styleMutationWarning[hash] = true;
     process.env.NODE_ENV !== 'production' ? warning(false, '`%s` was passed a style object that has previously been mutated. ' + 'Mutating `style` is deprecated. Consider cloning it beforehand. Check ' + 'the `render` %s. Previous style: %s. Mutated style: %s.', componentName, owner ? 'of `' + ownerName + '`' : 'using <' + componentName + '>', friendlyStringify(style1), friendlyStringify(style2)) : undefined;
   }
   function assertValidProps(component, props) {
     if (!props) {
-      return ;
+      return;
     }
     if (process.env.NODE_ENV !== 'production') {
       if (voidElementTags[component._tag]) {
@@ -698,4 +698,4 @@
   });
   assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
   module.exports = ReactDOMComponent;
-})(require("process"));
+})(require('process'));

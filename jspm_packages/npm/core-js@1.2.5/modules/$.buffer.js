@@ -1,14 +1,14 @@
 /* */ 
 'use strict';
 var DEBUG = false;
-if (require("./$.descriptors")) {
-  var global = require("./$.global"),
-      $ = require("./$"),
-      $mix = require("./$.mix"),
-      $fill = require("./$.array-fill"),
-      strictNew = require("./$.strict-new"),
-      toInteger = require("./$.to-integer"),
-      toLength = require("./$.to-length"),
+if (require('./$.descriptors')) {
+  var global = require('./$.global'),
+      $ = require('./$'),
+      $mix = require('./$.mix'),
+      $fill = require('./$.array-fill'),
+      strictNew = require('./$.strict-new'),
+      toInteger = require('./$.to-integer'),
+      toLength = require('./$.to-length'),
       $ArrayBuffer = global.ArrayBuffer,
       $DataView = global.DataView,
       Math = global.Math,

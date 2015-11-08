@@ -38,4 +38,4 @@
     }
   }
   module.exports = ReactErrorUtils;
-})(require("process"));
+})(require('process'));

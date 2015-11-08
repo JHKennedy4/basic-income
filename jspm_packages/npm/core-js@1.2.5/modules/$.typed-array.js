@@ -1,37 +1,37 @@
 /* */ 
 'use strict';
 var DEBUG = false;
-var DESCRIPTORS = require("./$.descriptors"),
-    global = require("./$.global"),
-    LIBRARY = require("./$.library"),
-    $ = require("./$"),
-    fails = require("./$.fails"),
-    $def = require("./$.def"),
-    $buffer = require("./$.buffer"),
-    ctx = require("./$.ctx"),
-    strictNew = require("./$.strict-new"),
-    propertyDesc = require("./$.property-desc"),
-    $hide = require("./$.hide"),
-    isInteger = require("./$.is-integer"),
-    toInteger = require("./$.to-integer"),
-    toLength = require("./$.to-length"),
-    toIndex = require("./$.to-index"),
-    toPrimitive = require("./$.to-primitive"),
-    isObject = require("./$.is-object"),
-    toObject = require("./$.to-object"),
-    isArrayIter = require("./$.is-array-iter"),
-    isIterable = require("./core.is-iterable"),
-    getIterFn = require("./core.get-iterator-method"),
-    wks = require("./$.wks"),
-    arrayMethods = require("./$.array-methods"),
-    arrayIncludes = require("./$.array-includes"),
-    $fill = require("./$.array-fill"),
-    $copyWithin = require("./$.array-copy-within"),
-    speciesConstructor = require("./$.species-constructor"),
-    $iterators = require("./es6.array.iterator"),
-    Iterators = require("./$.iterators"),
-    $iterDetect = require("./$.iter-detect"),
-    setSpecies = require("./$.set-species"),
+var DESCRIPTORS = require('./$.descriptors'),
+    global = require('./$.global'),
+    LIBRARY = require('./$.library'),
+    $ = require('./$'),
+    fails = require('./$.fails'),
+    $def = require('./$.def'),
+    $buffer = require('./$.buffer'),
+    ctx = require('./$.ctx'),
+    strictNew = require('./$.strict-new'),
+    propertyDesc = require('./$.property-desc'),
+    $hide = require('./$.hide'),
+    isInteger = require('./$.is-integer'),
+    toInteger = require('./$.to-integer'),
+    toLength = require('./$.to-length'),
+    toIndex = require('./$.to-index'),
+    toPrimitive = require('./$.to-primitive'),
+    isObject = require('./$.is-object'),
+    toObject = require('./$.to-object'),
+    isArrayIter = require('./$.is-array-iter'),
+    isIterable = require('./core.is-iterable'),
+    getIterFn = require('./core.get-iterator-method'),
+    wks = require('./$.wks'),
+    arrayMethods = require('./$.array-methods'),
+    arrayIncludes = require('./$.array-includes'),
+    $fill = require('./$.array-fill'),
+    $copyWithin = require('./$.array-copy-within'),
+    speciesConstructor = require('./$.species-constructor'),
+    $iterators = require('./es6.array.iterator'),
+    Iterators = require('./$.iterators'),
+    $iterDetect = require('./$.iter-detect'),
+    setSpecies = require('./$.set-species'),
     $ArrayBuffer = $buffer.ArrayBuffer,
     $DataView = $buffer.DataView,
     setDesc = $.setDesc,
@@ -240,7 +240,7 @@ $def($def.S + $def.F * (DESCRIPTORS && !ALL_ARRAYS), 'Object', {
 });
 module.exports = function(KEY, BYTES, wrapper, CLAMPED) {
   if (!DESCRIPTORS)
-    return ;
+    return;
   CLAMPED = !!CLAMPED;
   var NAME = KEY + (CLAMPED ? 'Clamped' : '') + 'Array',
       GETTER = 'get' + KEY,
@@ -266,7 +266,7 @@ module.exports = function(KEY, BYTES, wrapper, CLAMPED) {
     });
   };
   if (!$ArrayBuffer)
-    return ;
+    return;
   if (FORCED) {
     $TypedArray = wrapper(function(that, data, $offset, $length) {
       strictNew(that, $TypedArray, NAME);

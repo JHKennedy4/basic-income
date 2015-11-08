@@ -1,9 +1,9 @@
 /* */ 
 (function(process) {
   'use strict';
-  var stream = require("stream");
-  var util = require("util");
-  var replace = require("./replace");
+  var stream = require('stream');
+  var util = require('util');
+  var replace = require('./replace');
   var jsonExtRe = /\.json$/;
   module.exports = function(rootEnv) {
     rootEnv = rootEnv || process.env;
@@ -30,4 +30,4 @@
     this.push(replaced);
     cb();
   };
-})(require("process"));
+})(require('process'));
