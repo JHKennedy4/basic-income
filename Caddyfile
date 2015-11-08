@@ -1,4 +1,3 @@
-localhost:8080
-gzip
+localhost
+websocket /hot-watcher caddy-hot-watcher
 log / stdout "{method} {uri} {latency}"
-websocket /hot-reloader cat

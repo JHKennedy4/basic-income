@@ -8,17 +8,15 @@
   <script src="config.js"></script>
   <script>
     'use strict'
-    /*
-    System.config({
-    baseURL: '/app'
-    });
-     */
+
     System.import('app/main')
+
     // let's do some hot reloading
     if (location.origin.match(/localhost/)) {
+      // enable debug
       localStorage.debug = '*';
-      System.import('capaj/jspm-hot-reloader').then(function (HotReloader) {
-        let reloadPath = location.host + '/hot-reloader'
+      System.import('github/jhkennedy4/caddy-hot-loader').then(function (HotReloader) {
+        let reloadPath = location.host + '/hot-watcher'
         new HotReloader.default(reloadPath)
       })
     }
