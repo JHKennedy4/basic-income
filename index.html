@@ -14,10 +14,9 @@
     });
      */
     System.import('app/main')
-
-    console.log(System)
     // let's do some hot reloading
     if (location.origin.match(/localhost/)) {
+      localStorage.debug = '*';
       System.import('capaj/jspm-hot-reloader').then(function (HotReloader) {
         let reloadPath = location.host + '/hot-reloader'
         new HotReloader.default(reloadPath)
