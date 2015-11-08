@@ -1,11 +1,11 @@
 import React from 'react'
+import someCss from './test.css'
 
 export default class App extends React.Component {
   render () {
     return (
-      <div>
+      <div className='someCss.test'>
         Hello, again my friend!
-        So good to see you again
       </div>
     )
   }

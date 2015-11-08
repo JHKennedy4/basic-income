@@ -113,5 +113,11 @@
     "readable-stream": "npm:readable-stream@^1.0.27-1",
     "events": "github:jspm/nodelibs-events@^0.1.1"
   },
-  "npm:babel-core@5.8.33": {}
+  "npm:babel-core@5.8.33": {},
+  "npm:lodash@3.10.1": {
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "github:jhkennedy4/caddy-hot-loader@0.4.4": {
+    "lodash": "npm:lodash@^3.10.1"
+  }
 }

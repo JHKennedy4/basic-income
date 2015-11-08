@@ -19,8 +19,12 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.29",
     "core-js": "npm:core-js@1.2.5",
     "d3": "github:mbostock/d3@3.5.6",
+    "jhkennedy4/caddy-hot-loader": "github:jhkennedy4/caddy-hot-loader@0.4.4",
     "react": "npm:react@0.14.2",
     "react-dom": "npm:react-dom@0.14.2",
+    "github:jhkennedy4/caddy-hot-loader@0.4.4": {
+      "lodash": "npm:lodash@3.10.1"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -105,6 +109,9 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "source-map": "npm:source-map@0.1.31"
+    },
+    "npm:lodash@3.10.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:loose-envify@1.1.0": {
       "js-tokens": "npm:js-tokens@1.0.2",

@@ -1,0 +1,33 @@
+{
+  "name": "caddy-hot-loader",
+  "version": "0.4.4",
+  "description": "Caddy JSPM utility for hot reloading parts of your dependency tree",
+  "main": "caddy-hot-loader.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhkennedy4/caddy-hot-loader.git"
+  },
+  "author": "jhkennedy4@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhkennedy4/caddy-hot-loader/issues"
+  },
+  "homepage": "https://github.com/jhkennedy4/caddy-hot-loader#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "standard": "^5.3.1"
+  },
+  "jspm": {
+    "dependencies": {
+      "lodash": "npm:lodash@^3.10.1"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
