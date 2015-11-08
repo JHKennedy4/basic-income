@@ -15,7 +15,7 @@
     if (location.origin.match(/localhost/)) {
       // enable debug
       localStorage.debug = '*';
-      System.import('github/jhkennedy4/caddy-hot-loader').then(function (HotReloader) {
+      System.import('jhkennedy4/caddy-hot-loader').then(function (HotReloader) {
         let reloadPath = location.host + '/hot-watcher'
         new HotReloader.default(reloadPath)
       })
