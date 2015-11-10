@@ -18,7 +18,6 @@ System.config({
     "babel": "npm:babel-core@5.8.33",
     "babel-runtime": "npm:babel-runtime@5.8.29",
     "core-js": "npm:core-js@1.2.5",
-    "css": "npm:jspm-loader-css@1.0.1-beta1",
     "d3": "github:mbostock/d3@3.5.6",
     "jhkennedy4/caddy-hot-loader": "github:jhkennedy4/caddy-hot-loader@0.4.4",
     "react": "npm:react@0.14.2",
@@ -80,20 +79,6 @@ System.config({
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:css-modules-loader-core@1.0.0": {
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "icss-replace-symbols": "npm:icss-replace-symbols@1.0.2",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "postcss": "npm:postcss@5.0.10",
-      "postcss-modules-extract-imports": "npm:postcss-modules-extract-imports@1.0.0",
-      "postcss-modules-local-by-default": "npm:postcss-modules-local-by-default@1.0.0",
-      "postcss-modules-scope": "npm:postcss-modules-scope@1.0.0",
-      "postcss-modules-values": "npm:postcss-modules-values@1.1.0"
-    },
-    "npm:css-selector-tokenizer@0.5.4": {
-      "cssesc": "npm:cssesc@0.1.0",
-      "fastparse": "npm:fastparse@1.1.1"
-    },
     "npm:debounce@1.0.0": {
       "date-now": "npm:date-now@1.0.1"
     },
@@ -129,12 +114,6 @@ System.config({
     "npm:js-base64@2.1.9": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:jspm-loader-css@1.0.1-beta1": {
-      "css-modules-loader-core": "npm:css-modules-loader-core@1.0.0",
-      "debounce": "npm:debounce@1.0.0",
-      "path": "npm:path@0.12.7",
-      "toposort": "npm:toposort@0.2.12"
-    },
     "npm:jstransform@10.1.0": {
       "base62": "npm:base62@0.1.1",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -158,32 +137,6 @@ System.config({
     "npm:path@0.12.7": {
       "process": "npm:process@0.11.2",
       "util": "npm:util@0.10.3"
-    },
-    "npm:postcss-modules-extract-imports@1.0.0": {
-      "postcss": "npm:postcss@5.0.10",
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:postcss-modules-local-by-default@1.0.0": {
-      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.5.4",
-      "postcss": "npm:postcss@5.0.10"
-    },
-    "npm:postcss-modules-scope@1.0.0": {
-      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.5.4",
-      "postcss": "npm:postcss@5.0.10",
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:postcss-modules-values@1.1.0": {
-      "icss-replace-symbols": "npm:icss-replace-symbols@1.0.2",
-      "postcss": "npm:postcss@5.0.10"
-    },
-    "npm:postcss@5.0.10": {
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "js-base64": "npm:js-base64@2.1.9",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "source-map": "npm:source-map@0.5.3",
-      "supports-color": "npm:supports-color@3.1.2",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
