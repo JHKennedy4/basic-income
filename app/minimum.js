@@ -11,7 +11,7 @@ export default class Min extends React.Component {
   }
 
   loadDataFromServer() {
-    d3.csv("./income.csv", (data) => {
+    d3.csv("./data/income.csv", (data) => {
       console.log(this);
         this.setState({
           income_data: data
