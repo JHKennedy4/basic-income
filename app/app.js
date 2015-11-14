@@ -1,5 +1,7 @@
 import React from 'react'
 import Footer from './footer.js'
+import CalculatorRow from './calculator_row.js'
+import CalculatorCol from './calculator_col.js'
 
 export default class App extends React.Component {
   render () {
@@ -14,47 +16,56 @@ export default class App extends React.Component {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-xs-2">Tax Brackets</div>
-            <div className="col-xs-2">
+          <CalculatorRow title="Minimum Income">
+            <CalculatorCol>
+              $0
+            </CalculatorCol>
+            <CalculatorCol>
+              $10,000
+            </CalculatorCol>
+            <CalculatorCol>
+              $20,000
+            </CalculatorCol>
+          </CalculatorRow>
+
+          <CalculatorRow title="Tax Brackets">
+            <CalculatorCol>
               <ul>
                 <li>$10,000 - 10%</li>
                 <li>$20,000 - 14%</li>
                 <li>$50,000 - 20%</li>
                 <li>$100,000 - 30%</li>
               </ul>
-            </div>
-            <div className="col-xs-2">
+            </CalculatorCol>
+            <CalculatorCol>
               <ul>
-                <li>$10,000 - 14%</li>
-                <li>$20,000 - 18%</li>
-                <li>$50,000 - 24%</li>
-                <li>$100,000 - 35%</li>
+                <li>$10,000 - 10%</li>
+                <li>$20,000 - 14%</li>
+                <li>$50,000 - 20%</li>
+                <li>$100,000 - 30%</li>
               </ul>
-            </div>
-            <div className="col-xs-2">
+            </CalculatorCol>
+            <CalculatorCol>
               <ul>
-                <li>$10,000 - 0%</li>
-                <li>$20,000 - 7%</li>
-                <li>$50,000 - 14%</li>
-                <li>$100,000 - 33%</li>
+                <li>$10,000 - 10%</li>
+                <li>$20,000 - 14%</li>
+                <li>$50,000 - 20%</li>
+                <li>$100,000 - 30%</li>
               </ul>
-            </div>
-          </div>
+            </CalculatorCol>
+          </CalculatorRow>
 
-          <div className="row">
-            <div className="col-xs-2">Minimum Income</div>
-            <div className="col-xs-2">$10,000</div>
-            <div className="col-xs-2">$15,000</div>
-            <div className="col-xs-2">$20,000</div>
-          </div>
-
-          <div className="row">
-            <div className="col-xs-2">Welfare Programs</div>
-            <div className="col-xs-2">End them all!</div>
-            <div className="col-xs-2">End some of them.</div>
-            <div className="col-xs-2">Keep them.</div>
-          </div>
+          <CalculatorRow title="Welfare Programs">
+            <CalculatorCol>
+              End them all!
+            </CalculatorCol>
+            <CalculatorCol>
+              End some of them.
+            </CalculatorCol>
+            <CalculatorCol>
+              Keep them.
+            </CalculatorCol>
+          </CalculatorRow>
         </div>
 
         <Footer incomeAmount={15000} />
