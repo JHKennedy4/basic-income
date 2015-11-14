@@ -15,7 +15,7 @@ export default class App extends React.Component {
           </div>
         </header>
 
-        <Footer />
+        <Footer incomeAmount={15000} />
       </div>
     )
   }

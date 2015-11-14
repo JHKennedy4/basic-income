@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class App extends React.Component {
+export default class Footer extends React.Component {
   render () {
     return (
       <footer key="footer" className='calculator-footer'>
@@ -13,7 +13,7 @@ export default class App extends React.Component {
               [bar chart]
             </div>
             <div className="col-xs-2">
-              $10,000 / mo.
+              ${this.props.incomeAmount} / mo.
             </div>
           </div>
         </div>
@@ -21,3 +21,4 @@ export default class App extends React.Component {
       )
   }
 }
+Footer.defaultProps = { incomeAmount: 10000 }
