@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './footer.js'
 
 export default class App extends React.Component {
   render () {
@@ -14,21 +15,7 @@ export default class App extends React.Component {
           </div>
         </header>
 
-        <footer key="footer" className='calculator-footer'>
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-2">
-                Your Basic Income:
-              </div>
-              <div className="col-xs-8">
-                [bar chart]
-              </div>
-              <div className="col-xs-2">
-                $10,000 / mo.
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     )
   }
