@@ -1,3 +1,23 @@
-.test {
-  color: blue;
+.calculator-header {
+  margin: 24px 0;
+}
+
+.calculator-row {
+  height: 110px;
+}
+
+.calculator-row-title {
+}
+
+.calculator-row ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.calculator-footer {
+  background-color: #f0f0f0;
+  bottom: 0;
+  height: 100px;
+  position: fixed;
+  width: 100%;
 }
