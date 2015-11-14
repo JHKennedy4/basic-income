@@ -1,15 +1,26 @@
 import d3 from 'd3'
 import React from 'react'
+import raw_income_data from './income.js'
 
 export default class Min extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      income_data: "Not loaded yet",
+      income_data: JSON.parse(raw_income_data),
     }
-    this.loadDataFromServer = this.loadDataFromServer.bind(this);
+    //this.loadDataFromServer = this.loadDataFromServer.bind(this);
   }
 
+
+  render() {
+    return (
+      <div className='someCss.test'>
+      {JSON.stringify(this.state.income_data)}
+      </div>
+    );
+  }
+
+  /*
   loadDataFromServer() {
     d3.csv("./income.csv", (data) => {
       console.log(this);
@@ -21,18 +32,10 @@ export default class Min extends React.Component {
   }
 
   componentDidMount() {
-    this.loadDataFromServer();
+    //this.loadDataFromServer();
   }
-
-  render() {
-    return (
-      <div className='someCss.test'>
-      {JSON.stringify(this.state.income_data)}
-      </div>
-    );
-  }
+  */
 }
 
 
 export default Min
-
