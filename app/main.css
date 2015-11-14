@@ -1,3 +1,10 @@
-.test {
-  color: blue;
+.calculator-header {
+  margin: 24px 12px;
+}
+.calculator-footer {
+  background-color: #f0f0f0;
+  bottom: 0;
+  height: 40px;
+  position: fixed;
+  width: 100%;
 }
