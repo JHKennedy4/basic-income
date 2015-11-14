@@ -47,3 +47,7 @@ export function individualTaxObligation (income = median_income, tax_schedule = 
 
   return obligation
 }
+
+export function taxUsageBreakdown (obligation) {
+  return {}
+}

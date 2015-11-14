@@ -21,3 +21,27 @@
   position: fixed;
   width: 100%;
 }
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "adelle-sans";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "museo-sans";
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

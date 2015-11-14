@@ -1,8 +1,9 @@
 <!doctype html>
 <head>
+  <script src="https://use.typekit.net/wfv5gjr.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" type="text/css" href="app/main.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
@@ -22,6 +23,51 @@
   </script>
 </head>
 <body>
-  <div id="root"></div>
+  <div class="container">
+    <header class='calculator-header'>
+  
+      <h1>Basic Income Calculator</h1>
+    </header>
+
+    <div class="content">
+
+      <h2>The Federal Budget</h2>
+      <div class="flex-container">
+        <div>
+          <h3>Expenditures</h3>
+          <div id="federal-expenditures">Pie</div>
+        </div>
+        <div>
+          <h3>Revenues</h3>
+          <div id="federal-revenues">Pie</div>
+        </div>
+      </div>
+
+      <div class="flex-container">
+        <div>
+          <h3>Cash Transfers as Percent of Expenditures</h3>
+          <div id="federal-cash-transfers">Pie</div>
+        </div>
+        <div>
+          <h3>Personal Income Tax as Percent of Revenues</h3>
+          <div id="federal-income-tax-revenue">Pie</div>
+        </div>
+      </div>
+
+      <div class="">
+        <h2>Cash Transfer Breakdown</h2>
+        <div id="cash-transfer-breakdown">Bar?</div>
+      </div>
+
+      <div class="">
+        <h1>The Most Important Graph in American Public Policy</h1>
+        <label for="your-income">Your Income</label>
+        <input id="your-income" type="text">
+        <div id="the-big-picture"></div>
+      </div>
+
+
+    </div>
+  </div>
   <div id="rohit"></div>
 </body>
