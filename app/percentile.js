@@ -31,17 +31,18 @@ var Percentile = React.createClass({
     return {
       income: incomeData,
       tax: taxData,
-      transfers: transfersPerPerson
+      transfers: transfersPerPerson,
+      basicIncome: _.range(101)
     }
   },
   // Called after initial render
   componentDidMount() {
-    addGraph(_.map(['income', 'tax', 'transfer'],
+    addGraph(_.map(['income', 'tax', 'transfer', 'basicIncome'],
                    n => this.subchartNameToComponents()[n]))
   },
   // Called after all subsequent renders
   componentDidUpdate() {
-    addGraph(_.map(['income', 'tax', 'transfer'],
+    addGraph(_.map(['income', 'tax', 'transfer', 'basicIncome'],
                    n => this.subchartNameToComponents()[n]))
   },
   subchartNameToComponents() {
@@ -60,7 +61,12 @@ var Percentile = React.createClass({
                 , d => percentileScale(d.percentile)
                 , d => dollarScale(d.transfer)
                 , this.props.transfers
-                ]
+                ],
+      basicIncome: [ "basicIncome"
+                   , d => percentileScale(d)
+                   , d => dollarScale(10000)
+                   , this.props.basicIncome
+                   ]
     }
   },
   render() {
