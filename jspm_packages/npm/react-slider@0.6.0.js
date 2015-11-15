@@ -1,0 +1,1 @@
+module.exports = require("npm:react-slider@0.6.0/react-slider");
