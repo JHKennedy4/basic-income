@@ -93,8 +93,7 @@ export default class Min extends React.Component {
           <label htmlFor="your-income">Minimum Income: </label>
           <input id="your-income" type="text" value={this.state.value}
             onChange={this.handleChange}/>
-          <p>It would cost {this.format_money(this.state.cost)}
-          and affect {this.format_house(this.state.households)} households
+          <p>It would cost {this.format_money(this.state.cost)} and affect {this.format_house(this.state.households)} households
           across the country.</p>
 
           <div id="the-min-picture"><svg></svg></div>
