@@ -5,7 +5,6 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" type="text/css" href="app/main.css" />
   <script src="jspm_packages/system.js"></script>
-  <script src="config.js"></script>
   <script>
     'use strict'
 
@@ -13,7 +12,15 @@
       System.config({
         baseURL: '/basic-income'
       });
+    } else {
+      System.config({
+        baseURL: '/'
+      });
     }
+  </script>
+  <script src="config.js"></script>
+  <script>
+    'use strict'
 
     System.import('app/main')
 
