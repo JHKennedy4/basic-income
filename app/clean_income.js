@@ -523,7 +523,7 @@ var raw_income_data = [
   },
   {
     'range_lower': 50000000.00,
-    'range_upper': 'infinite',
+    'range_upper': 100000000.00,
     'households': 134,
     'cumulative': 158186786,
     'percentile': 100.00000,
