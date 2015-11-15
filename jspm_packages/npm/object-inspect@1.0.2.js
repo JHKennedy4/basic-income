@@ -1,0 +1,1 @@
+module.exports = require("npm:object-inspect@1.0.2/index");

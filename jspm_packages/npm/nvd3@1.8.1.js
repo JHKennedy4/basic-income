@@ -1,0 +1,1 @@
+module.exports = require("npm:nvd3@1.8.1/build/nv.d3");

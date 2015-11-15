@@ -1,0 +1,1 @@
+module.exports = require("npm:string.prototype.trim@1.1.1/index");

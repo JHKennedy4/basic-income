@@ -1,0 +1,1 @@
+module.exports = require("npm:es-abstract@1.4.3/index");
