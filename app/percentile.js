@@ -10,16 +10,16 @@ var margin = {top: 20, right: 50, bottom: 60, left: 50},
 var percentileScale = d3.scale.linear().range([0, width]).domain([0, 100])
 // Don't take the log of 0
 var dollarScale = d3.scale.log().range([height, 0])
-      .domain([0.001, d3.max(income, d => d.range_upper)])
+      .domain([100, d3.max(income, d => d.range_upper)])
 
 var Percentile = React.createClass({
   getDefaultProps() {
     // We can't actually use 0 on a log scale, but we want both y intercepts to look like 0
     // Thus we do 10 * epsilon for taxData so that when we apply the 10% lowest bracket tax, we end up with epsilon
     var taxData = _.clone(income)
-    taxData.unshift({percentile: 0.001, range_upper: 0.01, range_lower: 0.01})
+    taxData.unshift({percentile: 0.001, range_upper: 1000, range_lower: 1000})
     var incomeData  = _.clone(income)
-    incomeData.unshift({percentile: 0.001, range_upper: 0.001, range_lower: 0.001})
+    incomeData.unshift({percentile: 0.001, range_upper: 100, range_lower: 100})
     return {
       income: incomeData,
       tax: taxData
@@ -37,12 +37,12 @@ var Percentile = React.createClass({
     return {
       income: [ "income"
               , d => percentileScale(d.percentile)
-              , d => dollarScale(d.range_upper + d.range_lower / 2)
+              , d => dollarScale(d.range_upper)
               , this.props.income
               ],
       tax: [ "tax"
            , d => percentileScale(d.percentile)
-           , d => dollarScale(individualTaxObligation(d.range_upper + d.range_lower / 2))
+           , d => dollarScale(individualTaxObligation(d.range_upper))
            , this.props.tax
            ]
     }
