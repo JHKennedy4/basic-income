@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+  <script src="https://use.typekit.net/wfv5gjr.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" type="text/css" href="app/main.css" />
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+  <script>
+    'use strict'
+
+    if (location.origin.match(/github/)) {
+      System.config({
+        baseURL: '/basic-income'
+      });
+    }
+
+    System.import('app/main')
+
+    // let's do some hot reloading
+    if (location.origin.match(/localhost/)) {
+      // enable debug
+      localStorage.debug = '*';
+      System.import('jhkennedy4/caddy-hot-loader').then(function (HotReloader) {
+        let reloadPath = location.host + '/hot-watcher'
+        new HotReloader.default(reloadPath)
+      })
+    }
+  </script>
+</head>
+<body>
+  <div id="rohit"></div>
+</body>
