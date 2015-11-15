@@ -16,12 +16,13 @@ System.config({
   map: {
     "babel": "npm:babel-core@5.8.33",
     "babel-runtime": "npm:babel-runtime@5.8.29",
-    "core-js": "npm:core-js@1.2.5",
+    "core-js": "npm:core-js@1.2.6",
     "d3": "github:mbostock/d3@3.5.6",
     "jhkennedy4/caddy-hot-loader": "github:jhkennedy4/caddy-hot-loader@0.4.4",
     "nvd3": "npm:nvd3@1.8.1",
     "react": "npm:react@0.14.2",
     "react-dom": "npm:react-dom@0.14.2",
+    "react-slider": "npm:react-slider@0.6.0",
     "tape": "npm:tape@4.2.2",
     "underscore": "npm:underscore@1.8.3",
     "github:jhkennedy4/caddy-hot-loader@0.4.4": {
@@ -76,7 +77,7 @@ System.config({
       "ieee754": "npm:ieee754@1.1.6",
       "is-array": "npm:is-array@1.0.1"
     },
-    "npm:core-js@1.2.5": {
+    "npm:core-js@1.2.6": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -113,7 +114,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:fbjs@0.3.2": {
-      "core-js": "npm:core-js@1.2.5",
+      "core-js": "npm:core-js@1.2.6",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.0.4",
@@ -185,6 +186,9 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2"
     },
     "npm:react-dom@0.14.2": {
+      "react": "npm:react@0.14.2"
+    },
+    "npm:react-slider@0.6.0": {
       "react": "npm:react@0.14.2"
     },
     "npm:react@0.14.2": {

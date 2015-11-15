@@ -2,6 +2,7 @@ import _ from 'underscore'
 import d3 from 'd3'
 import React from 'react'
 import income from './clean_income.js'
+import ReactSlider from 'react-slider'
 import {individualTaxObligation} from './tax-calculator.js'
 import {populationIn2006, transferTotals} from '../data/transfers.js'
 
@@ -14,6 +15,9 @@ var dollarScale = d3.scale.log().range([height, 0])
       .domain([100, d3.max(income, d => d.range_upper)])
 
 var Percentile = React.createClass({
+  getInitialState() {
+    return {incomeLevel: 10}
+  },
   getDefaultProps() {
     // We can't actually use 0 on a log scale, but we want both y intercepts to look like 0
     // Thus we do 10 * epsilon for taxData so that when we apply the 10% lowest bracket tax, we end up with epsilon
@@ -31,17 +35,18 @@ var Percentile = React.createClass({
     return {
       income: incomeData,
       tax: taxData,
-      transfers: transfersPerPerson
+      transfers: transfersPerPerson,
+      basicIncome: _.range(101)
     }
   },
   // Called after initial render
   componentDidMount() {
-    addGraph(_.map(['income', 'tax', 'transfer'],
+    addGraph(_.map(['income', 'tax', 'transfer', 'basicIncome'],
                    n => this.subchartNameToComponents()[n]))
   },
   // Called after all subsequent renders
   componentDidUpdate() {
-    addGraph(_.map(['income', 'tax', 'transfer'],
+    addGraph(_.map(['income', 'tax', 'transfer', 'basicIncome'],
                    n => this.subchartNameToComponents()[n]))
   },
   subchartNameToComponents() {
@@ -60,15 +65,21 @@ var Percentile = React.createClass({
                 , d => percentileScale(d.percentile)
                 , d => dollarScale(d.transfer)
                 , this.props.transfers
-                ]
+                ],
+      basicIncome: [ "basicIncome"
+                   , d => percentileScale(d)
+                   , d => dollarScale(this.state.incomeLevel * 1000)
+                   , this.props.basicIncome
+                   ]
     }
   },
   render() {
     return (
-        <div>
+      <div>
         <h3>Income</h3>
+        <ReactSlider defaultValue={10} orientation="horizontal" withBars onAfterChange={val => this.setState({incomeLevel: val})} />
         <div id="percentile"></div>
-        </div>
+      </div>
     )
   }
 })
@@ -80,6 +91,7 @@ function addGraph(subCharts) {
         .tickFormat(d3.format('s'))
         .tickValues([1000, 10000, 100000, 1000000, 10000000, 100000000])
 
+  d3.select("#percentile svg").remove()
   var svg = d3.select("#percentile").append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
