@@ -54,6 +54,8 @@ export default class Min extends React.Component {
       cost: min_cost.cost,
       households: min_cost.households
     })
+    revenues[0].values[3]= {label: "Minimum income", value: min_cost.cost }
+
     d3.select('#the-min-picture svg')
       .datum(revenues)
       .transition().duration(500)
