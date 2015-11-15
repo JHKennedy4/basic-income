@@ -1,4 +1,5 @@
 import d3 from 'd3'
+import nv from 'nvd3'
 import React from 'react'
 import raw_income_data from './clean_income.js'
 import revenues from './revenues.js'
@@ -31,6 +32,16 @@ export default class Min extends React.Component {
 
   render() {
     var x = this.calculate_cost(15000);
+    nv.addGraph(function() {
+      var chart = nv.models.pieChart()
+        .x(function(d) { return d.label })
+        .y(function(d) { return d.value })
+        .showLabels(false);
+      d3.select('#federal-income-tax-revenue svg')
+        .datum(revenues)
+        .call(chart)
+      return chart;
+    });
     console.log("val: " + x);
     return (
       <div className="content">
@@ -53,7 +64,7 @@ export default class Min extends React.Component {
           </div>
           <div>
             <h3>Personal Income Tax as Percent of Revenues</h3>
-            <div id="federal-income-tax-revenue">Pie</div>
+            <div id="federal-income-tax-revenue"><svg></svg></div>
           </div>
         </div>
 

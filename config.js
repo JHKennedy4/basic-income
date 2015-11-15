@@ -20,6 +20,7 @@ System.config({
     "core-js": "npm:core-js@1.2.5",
     "d3": "github:mbostock/d3@3.5.6",
     "jhkennedy4/caddy-hot-loader": "github:jhkennedy4/caddy-hot-loader@0.4.4",
+    "nvd3": "npm:nvd3@1.8.1",
     "react": "npm:react@0.14.2",
     "react-dom": "npm:react-dom@0.14.2",
     "tape": "npm:tape@4.2.2",
@@ -164,6 +165,9 @@ System.config({
     "npm:minimatch@3.0.0": {
       "brace-expansion": "npm:brace-expansion@1.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0"
+    },
+    "npm:nvd3@1.8.1": {
+      "d3": "npm:d3@3.5.8"
     },
     "npm:once@1.3.2": {
       "wrappy": "npm:wrappy@1.0.1"
