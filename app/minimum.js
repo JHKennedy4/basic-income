@@ -1,6 +1,7 @@
 import d3 from 'd3'
 import React from 'react'
 import raw_income_data from './clean_income.js'
+import revenues from './revenues.js'
 
 export default class Min extends React.Component {
   constructor(props) {
@@ -8,7 +9,6 @@ export default class Min extends React.Component {
     this.state = {
       income_data: raw_income_data,
     }
-    //this.loadDataFromServer = this.loadDataFromServer.bind(this);
   }
 
   calculate_cost(basic_income) {
@@ -33,32 +33,45 @@ export default class Min extends React.Component {
     var x = this.calculate_cost(15000);
     console.log("val: " + x);
     return (
-     /* <div className='someCss.test'>
-      {JSON.stringify(this.state.income_data)}
+      <div className="content">
+        <h2>The Federal Budget</h2>
+        <div className="flex-container">
+          <div>
+            <h3>Expenditures</h3>
+            <div id="federal-expenditures">Pie</div>
+          </div>
+          <div>
+            <h3>Revenues</h3>
+            <div id="federal-revenues">Pie</div>
+          </div>
+        </div>
+
+        <div className="flex-container">
+          <div>
+            <h3>Cash Transfers as Percent of Expenditures</h3>
+            <div id="federal-cash-transfers">Pie</div>
+          </div>
+          <div>
+            <h3>Personal Income Tax as Percent of Revenues</h3>
+            <div id="federal-income-tax-revenue">Pie</div>
+          </div>
+        </div>
+
+        <div className="">
+          <h2>Cash Transfer Breakdown</h2>
+          <div id="cash-transfer-breakdown">Bar?</div>
+        </div>
+
+        <div className="">
+          <h1>The Most Important Graph in American Public Policy</h1>
+          <label htmlFor="your-income">Your Income</label>
+          <input id="your-income" type="text" />
+          <div id="the-big-picture"></div>
+        </div>
+        <p>{this.calculate_cost(30000)}</p>
       </div>
-      */
-     <div>
-      <input type="text" className="form-control" />
-      <p>{this.calculate_cost(30000)}</p>
-     </div>
     );
   }
-
-  /*
-  loadDataFromServer() {
-    d3.csv("./data/income.csv", (data) => {
-      console.log(this);
-        this.setState({
-          income_data: data
-        });
-        console.log("Data has been set");
-    });
-  }
-
-  componentDidMount() {
-    //this.loadDataFromServer();
-  }
-  */
 }
 
 
