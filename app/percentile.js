@@ -3,6 +3,7 @@ import d3 from 'd3'
 import React from 'react'
 import income from './clean_income.js'
 import {individualTaxObligation} from './tax-calculator.js'
+import {populationIn2006, transferTotals} from '../data/transfers.js'
 
 var margin = {top: 20, right: 50, bottom: 60, left: 50},
     width = 960 - margin.left - margin.right,
@@ -20,18 +21,28 @@ var Percentile = React.createClass({
     taxData.unshift({percentile: 0.001, range_upper: 1000, range_lower: 1000})
     var incomeData  = _.clone(income)
     incomeData.unshift({percentile: 0.001, range_upper: 100, range_lower: 100})
+    var transfersPerPerson = _.map(transferTotals,
+      function(t, i) {
+        return { transfer: t / (populationIn2006 / 5)
+               // Stretch the quintiles to the beginning and end of the chart
+               , percentile: 20 * i + 10 + (i - 2) * 5
+               }
+      })
     return {
       income: incomeData,
-      tax: taxData
+      tax: taxData,
+      transfers: transfersPerPerson
     }
   },
   // Called after initial render
   componentDidMount() {
-    addGraph(_.map(['income', 'tax'], n => this.subchartNameToComponents()[n]))
+    addGraph(_.map(['income', 'tax', 'transfer'],
+                   n => this.subchartNameToComponents()[n]))
   },
   // Called after all subsequent renders
   componentDidUpdate() {
-    addGraph(_.map(['income', 'tax'], n => this.subchartNameToComponents()[n]))
+    addGraph(_.map(['income', 'tax', 'transfer'],
+                   n => this.subchartNameToComponents()[n]))
   },
   subchartNameToComponents() {
     return {
@@ -44,7 +55,12 @@ var Percentile = React.createClass({
            , d => percentileScale(d.percentile)
            , d => dollarScale(individualTaxObligation(d.range_upper))
            , this.props.tax
-           ]
+           ],
+      transfer: [ "transfer"
+                , d => percentileScale(d.percentile)
+                , d => dollarScale(d.transfer)
+                , this.props.transfers
+                ]
     }
   },
   render() {
