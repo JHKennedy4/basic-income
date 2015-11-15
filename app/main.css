@@ -21,3 +21,21 @@ h6 {
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.area {
+    fill-opacity: 30%;
+}
+.income {
+    fill: blue;
+}
+.tax {
+    fill: red;
+}
+

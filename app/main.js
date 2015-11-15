@@ -1,6 +1,7 @@
 import Tax from './tax-calculator'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Percentile from './percentile'
 import Min from './minimum'
 import Income from './income'
 
@@ -65,5 +66,6 @@ ReactDOM.render(
 
     <TransferBreakdown />
     <Min />
+    <Percentile />
   </div>,
   document.getElementById('rohit'))
