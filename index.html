@@ -9,6 +9,12 @@
   <script>
     'use strict'
 
+    if (location.origin.match(/github/)) {
+      System.config({
+        baseURL: '/basic-income'
+      });
+    }
+
     System.import('app/main')
 
     // let's do some hot reloading
