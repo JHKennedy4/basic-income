@@ -7,6 +7,7 @@
       "nvd3": "npm:nvd3@^1.8.1",
       "react": "npm:react@^0.14.2",
       "react-dom": "npm:react-dom@^0.14.2",
+      "react-slider": "npm:react-slider@^0.6.0",
       "tape": "npm:tape@^4.2.2",
       "underscore": "npm:underscore@^1.8.3"
     },

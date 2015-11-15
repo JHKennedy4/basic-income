@@ -2,7 +2,9 @@ import _ from 'underscore'
 import d3 from 'd3'
 import React from 'react'
 import income from './clean_income.js'
+import ReactSlider from 'react-slider'
 import {individualTaxObligation} from './tax-calculator.js'
+import {populationIn2006, transferTotals} from '../data/transfers.js'
 
 var margin = {top: 20, right: 50, bottom: 60, left: 50},
     width = 960 - margin.left - margin.right,
@@ -10,49 +12,74 @@ var margin = {top: 20, right: 50, bottom: 60, left: 50},
 var percentileScale = d3.scale.linear().range([0, width]).domain([0, 100])
 // Don't take the log of 0
 var dollarScale = d3.scale.log().range([height, 0])
-      .domain([0.001, d3.max(income, d => d.range_upper)])
+      .domain([100, d3.max(income, d => d.range_upper)])
 
 var Percentile = React.createClass({
+  getInitialState() {
+    return {incomeLevel: 10}
+  },
   getDefaultProps() {
     // We can't actually use 0 on a log scale, but we want both y intercepts to look like 0
     // Thus we do 10 * epsilon for taxData so that when we apply the 10% lowest bracket tax, we end up with epsilon
     var taxData = _.clone(income)
-    taxData.unshift({percentile: 0.001, range_upper: 0.01, range_lower: 0.01})
+    taxData.unshift({percentile: 0.001, range_upper: 1000, range_lower: 1000})
     var incomeData  = _.clone(income)
-    incomeData.unshift({percentile: 0.001, range_upper: 0.001, range_lower: 0.001})
+    incomeData.unshift({percentile: 0.001, range_upper: 100, range_lower: 100})
+    var transfersPerPerson = _.map(transferTotals,
+      function(t, i) {
+        return { transfer: t / (populationIn2006 / 5)
+               // Stretch the quintiles to the beginning and end of the chart
+               , percentile: 20 * i + 10 + (i - 2) * 5
+               }
+      })
     return {
       income: incomeData,
-      tax: taxData
+      tax: taxData,
+      transfers: transfersPerPerson,
+      basicIncome: _.range(101)
     }
   },
   // Called after initial render
   componentDidMount() {
-    addGraph(_.map(['income', 'tax'], n => this.subchartNameToComponents()[n]))
+    addGraph(_.map(['income', 'tax', 'transfer', 'basicIncome'],
+                   n => this.subchartNameToComponents()[n]))
   },
   // Called after all subsequent renders
   componentDidUpdate() {
-    addGraph(_.map(['income', 'tax'], n => this.subchartNameToComponents()[n]))
+    addGraph(_.map(['income', 'tax', 'transfer', 'basicIncome'],
+                   n => this.subchartNameToComponents()[n]))
   },
   subchartNameToComponents() {
     return {
       income: [ "income"
               , d => percentileScale(d.percentile)
-              , d => dollarScale(d.range_upper + d.range_lower / 2)
+              , d => dollarScale(d.range_upper)
               , this.props.income
               ],
       tax: [ "tax"
            , d => percentileScale(d.percentile)
-           , d => dollarScale(individualTaxObligation(d.range_upper + d.range_lower / 2))
+           , d => dollarScale(individualTaxObligation(d.range_upper))
            , this.props.tax
-           ]
+           ],
+      transfer: [ "transfer"
+                , d => percentileScale(d.percentile)
+                , d => dollarScale(d.transfer)
+                , this.props.transfers
+                ],
+      basicIncome: [ "basicIncome"
+                   , d => percentileScale(d)
+                   , d => dollarScale(this.state.incomeLevel * 1000)
+                   , this.props.basicIncome
+                   ]
     }
   },
   render() {
     return (
-        <div>
+      <div>
         <h3>Income</h3>
+        <ReactSlider defaultValue={10} orientation="horizontal" withBars onAfterChange={val => this.setState({incomeLevel: val})} />
         <div id="percentile"></div>
-        </div>
+      </div>
     )
   }
 })
@@ -64,6 +91,7 @@ function addGraph(subCharts) {
         .tickFormat(d3.format('s'))
         .tickValues([1000, 10000, 100000, 1000000, 10000000, 100000000])
 
+  d3.select("#percentile svg").remove()
   var svg = d3.select("#percentile").append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
