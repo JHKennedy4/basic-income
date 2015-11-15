@@ -39,3 +39,13 @@ h6 {
     fill: red;
 }
 
+#the-min-picture {
+  display: block;
+  margin: 10px;
+  width: 1000px;
+}
+#the-min-picture svg {
+  padding: 100px;
+  height: 600px;
+  width: 1000px;
+}
