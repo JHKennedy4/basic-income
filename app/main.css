@@ -79,6 +79,17 @@ h6 {
   height: 10px;
 }
 
+#the-min-picture {
+  display: block;
+  margin: 10px;
+  width: 1000px;
+}
+#the-min-picture svg {
+  padding: 100px;
+  height: 600px;
+  width: 1000px;
+}
+
 .slider .handle {
   top: 1px;
   width: 50px;
